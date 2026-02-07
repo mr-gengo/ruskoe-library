@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Signup</title>
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  background: url('images/lok.jpg') no-repeat center center fixed; 
+  background-size: cover; /* makes the image fill the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+    .signup-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    .signup-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .signup-container input,
+    .signup-container select,
+    .signup-container button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .signup-container button {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .signup-container button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-top: -5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h2>Signup</h2>
+    <form id="signupForm" method="POST" action="register.php">
+      <input type="text" name="username" id="username" placeholder="Username" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <input type="password" name="password" id="password" placeholder="Password" required>
+      <select name="role" id="role" required>
+        <option value="">Select Role</option>
+        <option value="teacher">Teacher</option>
+        <option value="student">Student</option>
+        
+      </select>
+      <button type="submit">Register</button>
+      <div id="errorMessage" class="error"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', function(event) {
+      errorMessage.textContent = "";
+
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const role = document.getElementById('role').value;
+
+      // Basic validation
+      if (username.length < 3) {
+        errorMessage.textContent = "Username must be at least 3 characters.";
+        event.preventDefault();
+        return;
+      }
+
+      if (password.length < 6) {
+        errorMessage.textContent = "Password must be at least 6 characters.";
+        event.preventDefault();
+        return;
+      }
+
+      if (!role) {
+        errorMessage.textContent = "Please select a role.";
+        event.preventDefault();
+        return;
+      }
+    });
+  </script>
+
+</body>
+</html>

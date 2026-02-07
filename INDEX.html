@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rusere High Library</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: url('images/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+   h1 {
+    position: absolute;   /* fixes it relative to the page */
+    top: 280px;            /* distance from the top */
+    left: 20px;           /* distance from the left edge */
+    color: #fff;
+    font-size: 28px;
+    margin: 0;            /* remove default margin */
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+
+    #login {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        width: 350px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 80px;
+        margin-bottom: 15px;
+    }
+
+    #login form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+        outline: none;
+    }
+
+    button {
+        padding: 12px;
+        margin-top: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"] {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: #fff;
+    }
+
+    button[type="submit"]:hover {
+        background: linear-gradient(135deg, #2980b9, #1f6391);
+        transform: scale(1.03);
+    }
+
+    button[type="button"] {
+        background: #2ecc71;
+        color: #fff;
+    }
+
+    button[type="button"]:hover {
+        background: #27ae60;
+        transform: scale(1.03);
+    }
+</style>
+
+
+</head>
+<body>
+<h1>Rusere High School Library</h1>
+<div id="login">
+    <!-- Logo or decorative image -->
+    <img src="images/icon.jpg" alt="School Logo" class="logo">
+
+    <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        
+        <button type="submit">Login</button>
+        <button type="button" onclick="window.location.href='signup.html'">Sign up</button>
+    </form>
+</div>
+
+ 
+</body>
+</html>
